@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1029323163591",
+    "firebase_url": "https://mobile-81dee-default-rtdb.firebaseio.com",
+    "project_id": "mobile-81dee",
+    "storage_bucket": "mobile-81dee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029323163591:android:7e4f584ebeecf3d725fbe2",
+        "android_client_info": {
+          "package_name": "com.example.noti_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029323163591-gpbcb196ngp2botunu9bf78ornf6q2hm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFVR6z1Nkfzg7Vc4tnAJxFntYEL0YhDi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029323163591-gpbcb196ngp2botunu9bf78ornf6q2hm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029323163591:android:b2530039dee73a7f25fbe2",
+        "android_client_info": {
+          "package_name": "com.example.notifi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029323163591-gpbcb196ngp2botunu9bf78ornf6q2hm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFVR6z1Nkfzg7Vc4tnAJxFntYEL0YhDi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029323163591-gpbcb196ngp2botunu9bf78ornf6q2hm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
