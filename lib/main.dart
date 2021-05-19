@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:notifi/model/message.dart';
 
-void main() => runApp(MaterialApp(home: MyApp()));
+void main() => runApp(MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()));
 
 class MyApp extends StatefulWidget {
   @override
@@ -17,13 +17,12 @@ Future<dynamic> myBackgroundHandler(Map<String, dynamic> message) {
 }
 
 class MyAppState extends State<MyApp> {
+
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-
-
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
-  final List<Messages> messages = [];
+
   String title;
   String body;
   String imageLink;
@@ -43,11 +42,6 @@ class MyAppState extends State<MyApp> {
       )
     );
   }
-
-  // Widget buildMessage(Messages message) => ListTile(
-  //   title: Text(message.title),
-  //   subtitle: Text(message.body),
-  // );
 
   Future _showNotification(Map<String, dynamic> message) async {
     var androidPlatformChannelSpecifics = new AndroidNotificationDetails(
@@ -73,6 +67,7 @@ class MyAppState extends State<MyApp> {
     await flutterLocalNotificationsPlugin.cancelAll();
   }
 
+
   @override
   void initState() {
     const AndroidInitializationSettings initializationSettingsAndroid =
@@ -94,15 +89,6 @@ class MyAppState extends State<MyApp> {
           imageLink = message['data']['image_link'] ?? '';
         });
       },
-      //App Terminated
-      onLaunch: (Map<String, dynamic> message) async{
-        print('onLaunch: $message');
-        final data = message['data'];
-        setState(() {
-          messages.add(Messages(
-              title: data['title'], body: data['body'], imageLink: data['image_link']));
-        });
-      },
       //App in Background
       onResume: (Map<String, dynamic> message) async{
         print('onResume: $message');
@@ -112,7 +98,19 @@ class MyAppState extends State<MyApp> {
           imageLink = message['data']['image_link'] ?? '';
         });
       },
+      //App Terminated
+      onLaunch: (Map<String, dynamic> message) async{
+        print('onLaunch: $message');
+        setState(() {
+          title = message['data']['title'] ?? 'No data';
+          body = message['data']['body'] ?? 'No data';
+          imageLink = message['data']['image_link'] ?? 'No data';
+        });
+      },
     );
+
+
+
 
     getTokenz() async {
       String token = await _firebaseMessaging.getToken();
@@ -120,5 +118,6 @@ class MyAppState extends State<MyApp> {
     }
 
     getTokenz();
+
   }
 }
